@@ -202,6 +202,7 @@ ul li strong {
 }
 
 /* Estilos de juegos destacados */
+/* Estilos de juegos destacados */
 #juegos-destacados {
   margin-bottom: 2rem;
 }
@@ -217,9 +218,17 @@ ul li strong {
   flex-wrap: wrap;
 }
 
-.juego {
+.juegos-container a {
   flex-basis: calc(25% - 1rem);
   margin-bottom: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.juego {
+  display: block;
+  width: 100%;
+  height: 100%;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -254,12 +263,12 @@ ul li strong {
   opacity: 0;
 }
 
-.juego:hover {
+.juegos-container a:hover .juego {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(99, 9, 99, 0.2);
 }
 
-.juego:hover::before {
+.juegos-container a:hover .juego::before {
   left: -100%;
   top: -100%;
   opacity: 1;
@@ -279,6 +288,7 @@ ul li strong {
   margin: 0;
   border-radius: 0 0 10px 10px;
 }
+
 
 /* Estilos de secciones */
 #promociones, #CarreraDeCaballos, #Blackjack, #Tragaperras, #RuletaVirtual {
