@@ -20,6 +20,8 @@ function actualizarImagenCaballo(selectId, caballoId) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('')
     actualizarImagenCaballo('select-caballo1', 'caballo1');
+    actualizarImagenCaballo('select-caballo2', 'caballo2');
+    actualizarImagenCaballo('select-caballo3', 'caballo3');
 
     const pista = document.getElementById('pista');
     const caballos = [
