@@ -12,7 +12,6 @@ function iniciarCarrera() {
    caballos.forEach(caballo => {
        caballo.style.left = '0px';
    });
-   
    const interval = setInterval(() => {
        let ganador = null;
 
@@ -28,9 +27,12 @@ function iniciarCarrera() {
                const listaGanadores = document.getElementById('ganadores-lista');
                const nuevoGanador = document.createElement('div');
                nuevoGanador.className = 'ganador';
-               nuevoGanador.innerText = `C${ganador} ganador!`;
-               listaGanadores.appendChild(nuevoGanador);    
+               nuevoGanador.innerText = `C${ganador}`;
+               listaGanadores.appendChild(nuevoGanador);
         }
        });
-   }, 50); 
+   }, 50);
+}
+function cambiarDeCaballo(){
+    
 }
