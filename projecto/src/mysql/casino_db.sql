@@ -1,7 +1,3 @@
--- Crear la base de dades
-CREATE DATABASE IF NOT EXISTS casino_db;
-USE casino_db;
-
 -- Tabla de Usuaris
 CREATE TABLE Usuaris (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,7 +8,7 @@ CREATE TABLE Usuaris (
     data_registre DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Taula de Jocs
+-- Tabla de Jocs
 CREATE TABLE Jocs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) NOT NULL,
@@ -27,10 +23,17 @@ CREATE TABLE Partides (
     usuario_id INT,
     juego_id INT,
     puntos_apostados INT NOT NULL,
-    puntos_ganados INT NOT NULL,
     data_partida DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES Usuaris(id),
     FOREIGN KEY (juego_id) REFERENCES Jocs(id)
+);
+
+-- Tabla de Resultats
+CREATE TABLE Resultats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    partida_id INT,
+    puntos_ganados INT NOT NULL,
+    FOREIGN KEY (partida_id) REFERENCES Partides(id)
 );
 
 -- Tabla de Transaccions de Punts 
@@ -58,13 +61,6 @@ CREATE TABLE Canjes_Premios (
     usuario_id INT,
     premio_id INT,
     fecha_canje DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES Usuarios(id),
-    FOREIGN KEY (premio_id) REFERENCES Premios_Canjeable(id)
+    FOREIGN KEY (usuario_id) REFERENCES Usuaris(id),
+    FOREIGN KEY (premio_id) REFERENCES Premios_Canjeables(id)
 );
-
-
-INSERT INTO Juegos (nombre, descripcion, min_apuesta, max_apuesta) VALUES
-('Blackjack', 'Juego de cartas contra el crupier', 10, 1000),
-('Ruleta', 'Apuesta a números o colores', 5, 500),
-('Carrera de Caballos', 'Apuesta por tu caballo favorito', 20, 200),
-('Tragaperras', 'Máquina tragamonedas virtual', 1, 100);
