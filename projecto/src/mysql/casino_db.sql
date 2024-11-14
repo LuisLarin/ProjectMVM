@@ -59,7 +59,7 @@ CREATE TABLE Canjes_Premios (
     premio_id INT,
     fecha_canje DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES Usuarios(id),
-    FOREIGN KEY (premio_id) REFERENCES Premios_Canjeables(id)
+    FOREIGN KEY (premio_id) REFERENCES Premios_Canjeable(id)
 );
 
 
