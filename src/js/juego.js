@@ -16,8 +16,6 @@ function actualizarImagenCaballo(selectId, caballoId) {
         caballo.src = nuevaRuta;
     });
 }
-
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('')
     actualizarImagenCaballo('select-caballo1', 'caballo1');
