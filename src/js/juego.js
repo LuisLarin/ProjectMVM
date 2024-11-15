@@ -17,17 +17,22 @@ function actualizarImagenCaballo(selectId, caballoId) {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('')
     actualizarImagenCaballo('select-caballo1', 'caballo1');
     actualizarImagenCaballo('select-caballo2', 'caballo2');
     actualizarImagenCaballo('select-caballo3', 'caballo3');
+    actualizarImagenCaballo('select-caballo4', 'caballo4');
+    actualizarImagenCaballo('select-caballo5', 'caballo5');
 
     const pista = document.getElementById('pista');
     const caballos = [
         document.getElementById('caballo1'),
         document.getElementById('caballo2'),
-        document.getElementById('caballo3')
+        document.getElementById('caballo3'),
+        document.getElementById('caballo4'),
+        document.getElementById('caballo5')
     ];
     const distanciaMeta = pista.offsetWidth - caballos[0].offsetWidth;
 
