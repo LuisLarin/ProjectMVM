@@ -4,8 +4,9 @@ CREATE TABLE Usuaris (
     nom_usuari VARCHAR(50) UNIQUE NOT NULL,
     correu_electronic VARCHAR(100) UNIQUE NOT NULL,
     contrasenya VARCHAR(255) NOT NULL,
+    data_naixement DATE NOT NULL,
     punts_actuals INT DEFAULT 0,
-    data_registre DATETIME DEFAULT CURRENT_TIMESTAMP --FALTA FECHA DE NACIMIENTO 
+    data_registre DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Tabla de Jocs
@@ -36,7 +37,7 @@ CREATE TABLE Resultats (
     FOREIGN KEY (partida_id) REFERENCES Partides(id)
 );
 
--- Tabla de Transaccions de Punts 
+-- Tabla de Transaccions de Punts
 CREATE TABLE Transaccions_Punts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
