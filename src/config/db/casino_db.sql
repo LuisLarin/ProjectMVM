@@ -5,7 +5,7 @@ CREATE TABLE Usuaris (
     correu_electronic VARCHAR(100) UNIQUE NOT NULL,
     contrasenya VARCHAR(255) NOT NULL,
     punts_actuals INT DEFAULT 0,
-    data_registre DATETIME DEFAULT CURRENT_TIMESTAMP
+    data_registre DATETIME DEFAULT CURRENT_TIMESTAMP --FALTA FECHA DE NACIMIENTO 
 );
 
 -- Tabla de Jocs
