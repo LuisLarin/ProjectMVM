@@ -16,6 +16,12 @@ function actualizarImagenCaballo(selectId, caballoId) {
         caballo.src = nuevaRuta;
     });
 }
+function actualizarBuses() {
+    const caballos = document.querySelectorAll('.caballo');
+    caballos.forEach(caballo => {
+        caballo.src = '../../../../assets/images/bus.png';
+    });
+}
 document.addEventListener('DOMContentLoaded', function() {
     console.log('')
     actualizarImagenCaballo('select-caballo1', 'caballo1');
@@ -24,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
     actualizarImagenCaballo('select-caballo4', 'caballo4');
     actualizarImagenCaballo('select-caballo5', 'caballo5');
 
+    document.getElementById('carrera de buses').addEventListener('click', actualizarBuses);
+    
     const pista = document.getElementById('pista');
     const caballos = [
         document.getElementById('caballo1'),
