@@ -632,4 +632,13 @@ div#pista {
   border-radius: 5px;
   font-size: 1rem;
 }
+.selecciondecaballos{
+  background-color: #be16be;
+  padding: 0.2rem;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
 
