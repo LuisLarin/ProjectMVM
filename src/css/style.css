@@ -572,19 +572,28 @@ footer {
 }
 
 .ganador {
-  background-color: black; /* Color de fondo para cada ganador */
-  color: white; /* Color del texto */
-  padding: 10px;
-  margin: 5px; /* Espaciado entre ganadores */
-  border-radius: 5px; /* Bordes redondeados para cada ganador */
-  min-width: 80px; /* Ancho mínimo para cada cubo */
-  text-align: center; /* Centrar el texto dentro del cubo */
+  background-color: black;
+  /*Colordefondoparacadaganador*/color: white;
+  /*Colordeltexto*/padding: 10px;
+  margin: 5px;
+  /*Espaciadoentreganadores*/border-radius: 5px;
+  /*Bordesredondeadosparacadaganador*/min-width: 80px;
+  /*Anchomínimoparacadacubo*/text-align: center;
+   /* Centrar el texto dentro del cubo */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .caballo {
   position: absolute;
-  width: 300px; 
+  width: 300px;
   transition: left 0.1s ease-in-out;
+  -webkit-transition: left 0.1s ease-in-out;
+  -moz-transition: left 0.1s ease-in-out;
+  -ms-transition: left 0.1s ease-in-out;
+  -o-transition: left 0.1s ease-in-out;
 }
 
 #resultado {
@@ -603,5 +612,15 @@ div#pista {
   background-image: url('../assets/images/hipodromo.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.botonesdecarrera button{
+  width: auto;
+  padding: 0.75rem;
+  background-color: #130513;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 

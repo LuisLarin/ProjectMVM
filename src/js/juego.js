@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     actualizarImagenCaballo('select-caballo4', 'caballo4');
     actualizarImagenCaballo('select-caballo5', 'caballo5');
 
-    document.getElementById('carrera de buses').addEventListener('click', actualizarBuses);
+    document.getElementById('carreradebuses').addEventListener('click', actualizarBuses);
     
     const pista = document.getElementById('pista');
     const caballos = [
