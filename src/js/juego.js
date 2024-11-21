@@ -23,7 +23,7 @@ function actualizarBuses() {
     });
 }
 async function carrera() {
-    const botones = document.querySelectorAll("button"); 
+    const botones = document.querySelectorAll("button");
         botones.forEach(boton => boton.disabled = true);
         await new Promise(resolve => setTimeout(resolve, 3000));
         botones.forEach(boton => boton.disabled = false);
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     actualizarImagenCaballo('select-caballo5', 'caballo5');
 
     document.getElementById('carreradebuses').addEventListener('click', actualizarBuses);
-    
+
     const pista = document.getElementById('pista');
     const caballos = [
         document.getElementById('caballo1'),

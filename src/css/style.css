@@ -554,10 +554,9 @@ footer {
 /* juego de caballos */
 
 #ultimos-ganadores {
-  background-color: #e0b423; /* Color de fondo */
+  background-color: #e0b4239a; /* Color de fondo */
   padding: 20px; /* Espaciado interno */
   margin-top: 20px; /* Espaciado superior */
-  border: 1px solid #000000; /* Borde del recuadro */
   border-radius: 10px; /* Bordes redondeados */
 }
 
@@ -640,4 +639,8 @@ div#pista {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+}
+#fondoCarreras{
+  background-image: url('../../assets/images/imagenDeFondoCarrera.jpg');
+  background-size: auto;
 }
