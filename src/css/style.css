@@ -124,9 +124,9 @@ main {
 }
 
 h2 {
-  color: #d018d0;
+  color: #1f0e1f;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #d018d0;
+  border-bottom: 2px solid #1d0d1d;
   padding-bottom: 0.5rem;
 }
 
@@ -554,10 +554,10 @@ footer {
 /* juego de caballos */
 
 #ultimos-ganadores {
-  background-color: #f0f0f0; /* Color de fondo */
+  background-color: #e0b423; /* Color de fondo */
   padding: 20px; /* Espaciado interno */
   margin-top: 20px; /* Espaciado superior */
-  border: 1px solid #630963; /* Borde del recuadro */
+  border: 1px solid #000000; /* Borde del recuadro */
   border-radius: 10px; /* Bordes redondeados */
 }
 
@@ -573,7 +573,7 @@ footer {
 
 .ganador {
   background-color: black;
-  /*Colordefondoparacadaganador*/color: white;
+  /*Colordefondoparacadaganador*/color: rgb(252, 252, 252);
   /*Colordeltexto*/padding: 10px;
   margin: 5px;
   /*Espaciadoentreganadores*/border-radius: 5px;
@@ -609,7 +609,7 @@ div#pista {
   position: relative;
   margin: auto;
   overflow: hidden;
-  background-image: url('../assets/images/hipodromo.jpg');
+  background-image: url('../../assets/images/hipodromo.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -634,7 +634,7 @@ div#pista {
 }
 .selecciondecaballos{
   width: auto;
-  background-color: #be16be;
+  background-color: #e0b423;
   padding: 0.2rem;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -642,4 +642,3 @@ div#pista {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-
