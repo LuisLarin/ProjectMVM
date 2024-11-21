@@ -609,9 +609,8 @@ div#pista {
   position: relative;
   margin: auto;
   overflow: hidden;
-  background-image: url('../../assets/images/hipodromo.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url('../../assets/images/fondoDeCarrera.jpg');
+  background-position: 0%;
 }
 
 .botonesdecarrera button{
