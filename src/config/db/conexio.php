@@ -5,10 +5,13 @@ $password = "admin123"; // Tu contraseña de MySQL
 $dbname = "casino_db"; // Nombre de tu base de datos
 
 // Crear conexión
-$conn = new mysqli($localhost, $admin, $admin123, $casino_db);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
+
+//Establir el conjunt de caracters a utf8
+$conn->set_charset("uft8");
 ?>
