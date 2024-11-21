@@ -118,8 +118,9 @@ nav ul li a:hover {
 /* Estilos del contenido principal */
 main {
   flex: 1 0 auto;
-  max-width: 1200px;
+  /*max-width: 1200px;
   margin: 2rem auto;
+  */
   padding: 0 1rem;
 }
 
