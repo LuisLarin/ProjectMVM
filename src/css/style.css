@@ -1,4 +1,4 @@
-/* Estilos generales */
+* Estilos generales */
 html, body {
   height: 100%;
   margin: 0;
@@ -623,64 +623,10 @@ div#pista {
   border-radius: 5px;
   font-size: 1rem;
 }
-
-/* tragaperras */
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-}
-
-h1 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
-#score {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #4CAF50;
-}
-
-.slot-machine {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.reel {
-  width: 100px;
-  height: 300px;
-  border: 2px solid #333;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #f0f0f0;
-}
-
-.symbols {
-  display: flex;
-  flex-direction: column;
-  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.symbols img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-
-.controls {
-  margin-bottom: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #4CAF50;
+.selecciondecaballos select{
+  width: auto;
+  padding: 0.3rem;
+  background-color: #130513;
   color: white;
   border: none;
   border-radius: 5px;
@@ -709,15 +655,7 @@ button:disabled {
   overflow: hidden;
   background-color: #f0f0f0;
 }
-
-.symbols {
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.05s;
-}
-
-.symbols img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+#fondoCarreras{
+  background-image: url('../../assets/images/imagenDeFondoCarrera.jpg');
+  background-size: auto;
 }
