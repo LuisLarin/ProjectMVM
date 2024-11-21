@@ -626,33 +626,60 @@ div#pista {
 
 /* tragaperras */
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#score {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4CAF50;
+}
+
 .slot-machine {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .reel {
   width: 100px;
-  height: 100px;
+  height: 300px;
   border: 2px solid #333;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  background-color: #f0f0f0;
 }
 
-.reel img {
-  max-width: 80px;
-  max-height: 80px;
+.symbols {
+  display: flex;
+  flex-direction: column;
+  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.symbols img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.controls {
+  margin-bottom: 20px;
 }
 
 button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 18px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -665,19 +692,32 @@ button:hover {
   background-color: #45a049;
 }
 
-#result {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-#score {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
 button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+
+.result-container {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reel {
+  width: 100px;
+  height: 300px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.symbols {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.05s;
+}
+
+.symbols img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }

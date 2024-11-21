@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="ca">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Casino Montalban</title>
-        <link rel="stylesheet" href="../../../css/style.css">
-        <link rel="icon" type="image/x-icon" href="../../../assets/icons/favicon.ico">
-    </head>
-    <body>
-        <header>
-            <div class="header-container">
-                <div class="logo">
-                    <a href="../../index.html">
-                        <img  src="../../../../assets/images/logo.png" alt="Casino Montalban Logo">
-                    </a>            </div>
-                <nav>
-                    <ul>
-                        <li><a href="../../index.html">Inici</a></li>
-                        <li><a href="../../pages/jocs.html">Jocs</a></li>
-                        <li><a href="../../pages/jocs.html">Casino</a></li>
-                        <li><a href="../../pages/promocions.html">Promocions</a></li>
-                    </ul>
-                </nav>
-                <div class="login-buttons">
-                    <a href="../../pages/login.html" class="btn-login">Iniciar Sesión</a>
-                    <a href="../../pages/register.html" class="btn-register">Registrarse</a>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Montalban - Tragaperras</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/tragaperras.css">
+    <link rel="icon" type="image/x-icon" href="../../../assets/icons/favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="../../../../assets/images/logo.png" alt="Casino Montalban Logo">
+                </a>
             </div>
-        </header>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Inici</a></li>
+                    <li><a href="../../pages/jocs.html">Jocs</a></li>
+                    <li><a href="../../pages/jocs.html">Casino</a></li>
+                    <li><a href="../../pages/promocions.html">Promocions</a></li>
+                </ul>
+            </nav>
+            <div class="login-buttons">
+                <a href="../../pages/login.html" class="btn-login">Iniciar Sesión</a>
+                <a href="../../pages/register.html" class="btn-register">Registrarse</a>
+            </div>
+        </div>
+    </header>
+
     <main>  
         <div class="container">
             <h1>Tragaperras</h1>
@@ -35,32 +38,44 @@
             <div id="score">Puntuación: 1000</div>
             
             <div class="slot-machine">
-                <div class="reel" id="reel1">
-                    <img src="" alt="símbolo 1">
+                <div class="reel">
+                    <div class="symbols">
+                        <img src="" alt="símbolo">
+                        <img src="" alt="símbolo">
+                        <img src="" alt="símbolo">
+                    </div>
                 </div>
-                <div class="reel" id="reel2">
-                    <img src="" alt="símbolo 2">
+                <div class="reel">
+                    <div class="symbols">
+                        <img src="" alt="símbolo">
+                        <img src="" alt="símbolo">
+                        <img src="" alt="símbolo">
+                    </div>
                 </div>
-                <div class="reel" id="reel3">
-                    <img src="" alt="símbolo 3">
+                <div class="reel">
+                    <div class="symbols">
+                        <img src="" alt="símbolo">
+                        <img src="" alt="símbolo">
+                        <img src="" alt="símbolo">
+                    </div>
                 </div>
             </div>
             
+            
             <div class="controls">
-                <button onclick="playSlotMachine()">Girar</button>
+                <button onclick="jugarTragaperras()">Girar</button>
             </div>
             
             <div class="result-container">
                 <p id="result"></p>
             </div>
         </div>
-    
     </main>
 
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
-                <img src="../../../../assets/images/logo.png" alt="Casino Montalban Logo" height="100px" width="100px">
+                <img src="../../../../assets/images/logo.png" alt="Casino Montalban Logo" height="100" width="100">
                 <h2>Casino Montalban</h2>
                 <p>&copy; 2024 Todos los derechos reservados.</p>
             </div>
@@ -80,10 +95,9 @@
                     <button type="submit">Enviar</button>
                 </form>
             </div>
-    
-
-        
+        </div>
     </footer>
+
     <script src="../../../js/tragaperras.js"></script>
 </body>
 </html>
