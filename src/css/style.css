@@ -118,16 +118,15 @@ nav ul li a:hover {
 /* Estilos del contenido principal */
 main {
   flex: 1 0 auto;
-  /*max-width: 1200px;
+  max-width: 1200px;
   margin: 2rem auto;
-  */
   padding: 0 1rem;
 }
 
 h2 {
-  color: #1f0e1f;
+  color: #d018d0;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #1d0d1d;
+  border-bottom: 2px solid #d018d0;
   padding-bottom: 0.5rem;
 }
 
@@ -555,9 +554,10 @@ footer {
 /* juego de caballos */
 
 #ultimos-ganadores {
-  background-color: #e0b4239a; /* Color de fondo */
+  background-color: #f0f0f0; /* Color de fondo */
   padding: 20px; /* Espaciado interno */
   margin-top: 20px; /* Espaciado superior */
+  border: 1px solid #630963; /* Borde del recuadro */
   border-radius: 10px; /* Bordes redondeados */
 }
 
@@ -573,7 +573,7 @@ footer {
 
 .ganador {
   background-color: black;
-  /*Colordefondoparacadaganador*/color: rgb(252, 252, 252);
+  /*Colordefondoparacadaganador*/color: white;
   /*Colordeltexto*/padding: 10px;
   margin: 5px;
   /*Espaciadoentreganadores*/border-radius: 5px;
@@ -609,39 +609,115 @@ div#pista {
   position: relative;
   margin: auto;
   overflow: hidden;
-  background-image: url('../../assets/images/fondoDeCarrera.jpg');
-  background-position: 0%;
+  background-image: url('../assets/images/hipodromo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .botonesdecarrera button{
   width: auto;
-  padding: 0.3rem;
+  padding: 0.75rem;
   background-color: #130513;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
 }
-.selecciondecaballos select{
-  width: auto;
-  padding: 0.3rem;
-  background-color: #130513;
+
+/* tragaperras */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#score {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4CAF50;
+}
+
+.slot-machine {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.reel {
+  width: 100px;
+  height: 300px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.symbols {
+  display: flex;
+  flex-direction: column;
+  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.symbols img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-.selecciondecaballos{
-  width: auto;
-  background-color: #e0b423;
-  padding: 0.2rem;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+
+button:hover {
+  background-color: #45a049;
 }
-#fondoCarreras{
-  background-image: url('../../assets/images/imagenDeFondoCarrera.jpg');
-  background-size: auto;
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.result-container {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reel {
+  width: 100px;
+  height: 300px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.symbols {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.05s;
+}
+
+.symbols img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
