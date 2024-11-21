@@ -23,13 +23,15 @@ function actualizarBuses() {
     });
 }
 async function carrera() {
-    var boton = document.querySelector("button");
-    boton.disabled = true; 
-    await iniciarCarrera();
-    boton.disabled = false;
+    const botones = document.querySelectorAll("button"); 
+        botones.forEach(boton => boton.disabled = true);
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        botones.forEach(boton => boton.disabled = false);
 }
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('')
+    carrera();
     actualizarImagenCaballo('select-caballo1', 'caballo1');
     actualizarImagenCaballo('select-caballo2', 'caballo2');
     actualizarImagenCaballo('select-caballo3', 'caballo3');
@@ -57,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         const interval = setInterval(() => {
             let ganador = null;
-
             caballos.forEach((caballo, index) => {
                 const avance = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
                 const nuevaPosicion = parseInt(caballo.style.left) + avance;
@@ -77,3 +78,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 50);
     }
 });
+
