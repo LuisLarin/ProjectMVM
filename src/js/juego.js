@@ -22,6 +22,12 @@ function actualizarBuses() {
         caballo.src = '../../../../assets/images/bus.png';
     });
 }
+async function carrera() {
+    var boton = document.querySelector("button");
+    boton.disabled = true; 
+    await iniciarCarrera();
+    boton.disabled = false;
+}
 document.addEventListener('DOMContentLoaded', function() {
     console.log('')
     actualizarImagenCaballo('select-caballo1', 'caballo1');
@@ -45,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('iniciar').addEventListener('click', iniciarCarrera);
 
     function iniciarCarrera() {
+        carrera();
         caballos.forEach(caballo => {
             caballo.style.left = '0px';
         });
