@@ -14,4 +14,10 @@ if ($conn->connect_error) {
 
 //Establir el conjunt de caracters a utf8
 $conn->set_charset("uft8");
+
+//Aqui deberia añadir mas codigo para poder implementar el formulario del pie de pagina 
+//para que la persona que quiera contactar pueda hacerlo
+
+
+
 ?>
