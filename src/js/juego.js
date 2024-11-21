@@ -22,8 +22,16 @@ function actualizarBuses() {
         caballo.src = '../../../../assets/images/bus.png';
     });
 }
+async function carrera() {
+    const botones = document.querySelectorAll("button");
+        botones.forEach(boton => boton.disabled = true);
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        botones.forEach(boton => boton.disabled = false);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('')
+    carrera();
     actualizarImagenCaballo('select-caballo1', 'caballo1');
     actualizarImagenCaballo('select-caballo2', 'caballo2');
     actualizarImagenCaballo('select-caballo3', 'caballo3');
@@ -31,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     actualizarImagenCaballo('select-caballo5', 'caballo5');
 
     document.getElementById('carreradebuses').addEventListener('click', actualizarBuses);
-    
+
     const pista = document.getElementById('pista');
     const caballos = [
         document.getElementById('caballo1'),
@@ -45,12 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('iniciar').addEventListener('click', iniciarCarrera);
 
     function iniciarCarrera() {
+        carrera();
         caballos.forEach(caballo => {
             caballo.style.left = '0px';
         });
         const interval = setInterval(() => {
             let ganador = null;
-
             caballos.forEach((caballo, index) => {
                 const avance = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
                 const nuevaPosicion = parseInt(caballo.style.left) + avance;
@@ -70,3 +78,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 50);
     }
 });
+
