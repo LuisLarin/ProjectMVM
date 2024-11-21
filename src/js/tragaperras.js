@@ -52,17 +52,17 @@ function actualizarInterfaz(matriz) {
     });
 }
 
-// Funcion para rotar la matriz (simula el giro de los rodillos)
-function rotarMatriz(matriz) {
-    return matriz[0].map((val, index) => matriz.map(row => row[row.length-1-index]));
-}
-
 // Funcion para animar el giro de los rodillos
 function animarGiro(duracion) {
     return new Promise(resolve => {
         let matriz = inicializarMatriz();
         const intervalo = setInterval(() => {
-            matriz = rotarMatriz(matriz);
+            // Actualizamos cada posición con una nueva fruta aleatoria
+            for (let i = 0; i < matriz.length; i++) {
+                for (let j = 0; j < matriz[i].length; j++) {
+                    matriz[i][j] = obtenerFrutaAleatoria();
+                }
+            }
             actualizarInterfaz(matriz);
         }, 100);
 
@@ -81,7 +81,7 @@ async function girar() {
     const matrizFinal = await animarGiro(3000);  // Animamos durante 3 segundos
 
     boton.disabled = false;  // Reactivamos el boton
-    return matrizFinal[1];  // Devolvemos solo la fila del medio
+    return matrizFinal[1];   // Devolvemos solo la fila del medio
 }
 
 // Funcion para verificar si hay ganancia y calcularla
@@ -90,19 +90,18 @@ function verificarGanancia(filaDelMedio) {
     const elementoPuntuacion = document.getElementById('score');
     let ganancia = 0;
 
-    const idsUnicos = new Set(filaDelMedio.map(fruta => fruta.id));
-
-    if (idsUnicos.size === 1) {
+    // Comprobamos si hay coincidencias consecutivas
+    if (filaDelMedio[0].id === filaDelMedio[1].id && filaDelMedio[1].id === filaDelMedio[2].id) {
         // Tres frutas iguales
         ganancia = filaDelMedio[0].valor * 3;
         mensajeResultado.textContent = `Felicidades! Has ganado ${ganancia} puntos con tres ${filaDelMedio[0].nombre}s.`;
-    } else if (idsUnicos.size === 2) {
-        // Dos frutas iguales
-        const frutaRepetida = filaDelMedio.find(fruta => filaDelMedio.filter(f => f.id === fruta.id).length > 1);
+    } else if (filaDelMedio[0].id === filaDelMedio[1].id || filaDelMedio[1].id === filaDelMedio[2].id) {
+        // Dos frutas iguales consecutivas
+        const frutaRepetida = filaDelMedio[0].id === filaDelMedio[1].id ? filaDelMedio[0] : filaDelMedio[1];
         ganancia = frutaRepetida.valor * 2;
-        mensajeResultado.textContent = `Has ganado ${ganancia} puntos con dos ${frutaRepetida.nombre}s.`;
+        mensajeResultado.textContent = `Has ganado ${ganancia} puntos con dos ${frutaRepetida.nombre}s consecutivos.`;
     } else {
-        // Ninguna coincidencia
+        // Ninguna coincidencia consecutiva
         mensajeResultado.textContent = "Lo siento, no has ganado esta vez. Intentalo de nuevo!";
     }
 
@@ -119,14 +118,28 @@ async function jugarTragaperras() {
         return;
     }
 
+    puntuacion -= costePorGiro; // Restamos el coste del giro inmediatamente
+    actualizarPuntuacion();      // Actualizamos la puntuación mostrada
+
     const filaDelMedio = await girar();
     verificarGanancia(filaDelMedio);
+}
+
+// Funcion para actualizar la puntuacion mostrada
+function actualizarPuntuacion() {
+    const elementoPuntuacion = document.getElementById('score');
+    elementoPuntuacion.textContent = `Puntuacion: ${puntuacion}`;
 }
 
 // Inicializamos la interfaz cuando se carga la pagina
 document.addEventListener('DOMContentLoaded', () => {
     const elementoPuntuacion = document.getElementById('score');
     elementoPuntuacion.textContent = `Puntuacion: ${puntuacion}`;
+    
     const matrizInicial = inicializarMatriz();
     actualizarInterfaz(matrizInicial);
+
+    // Añadimos el evento click al botón de girar
+    const botonGirar = document.querySelector('button');
+    botonGirar.addEventListener('click', jugarTragaperras);
 });
