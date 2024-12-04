@@ -17,9 +17,9 @@
                 <nav>
                     <ul>
                         <li><a href="../../index.html">Inici</a></li>
-                        <li><a href="../../pages/git.html">Jocs</a></li>
-                        <li><a href="../../pages/jocs.html">Casino</a></li>
-                        <li><a href="../../pages/promocions.html">Promocions</a></li>
+                        <li><a href="../jocs.html">Jocs</a></li>
+                        <li><a href="../casino.html">Casino</a></li>
+                        <li><a href="../promocions.html">Promocions</a></li>
                     </ul>
                 </nav>
                 <div class="login-buttons">
@@ -28,17 +28,75 @@
                 </div>
             </div>
         </header>
-    <main>
         <section id="ultimos-ganadores">
             <h2>Últimos Caballos Ganadores</h2>
             <div id="ganadores-lista">
             </div>
         </section>
-        <main>
             <section id="carrera">
+                <div id="apuestas">
+                    <div class="contenedor-apuestas">
+                        <div class="columna-apuesta">
+                            <h3>Caballo 1</h3>
+                            <select id="select-apuesta-1">
+                                <option value="" selected></option>
+                                <option value="minima">Apuesta mínima (100)</option>
+                                <option value="personalizada">Apuesta personalizada</option>
+                                <option value="maxima">Apuesta máxima</option>
+                            </select>
+                            <input type="number" id="apuesta-personalizada-1" class="apuesta-personalizada" style="display:none;" placeholder="Cantidad De Dinero">
+                        </div>
+                        <div class="columna-apuesta">
+                            <h3>Caballo 2</h3>
+                            <select id="select-apuesta-2">
+                                <option value="" selected></option>
+                                <option value="minima">Apuesta mínima (100)</option>
+                                <option value="personalizada">Apuesta personalizada</option>
+                                <option value="maxima">Apuesta máxima</option>
+                            </select>
+                            <input type="number" id="apuesta-personalizada-2" class="apuesta-personalizada" style="display:none;" placeholder="Cantidad De Dinero">
+                        </div>
+                        <div class="columna-apuesta">
+                            <h3>Caballo 3</h3>
+                            <select id="select-apuesta-3">
+                                <option value="" selected></option>
+                                <option value="minima">Apuesta mínima (100)</option>
+                                <option value="personalizada">Apuesta personalizada</option>
+                                <option value="maxima">Apuesta máxima</option>
+                            </select>
+                            <input type="number" id="apuesta-personalizada-3" class="apuesta-personalizada" style="display:none;" placeholder="Cantidad De Dinero">
+                        </div>
+                        <div class="columna-apuesta">
+                            <h3>Caballo 4</h3>
+                            <select id="select-apuesta-4">
+                                <option value="" selected></option>
+                                <option value="minima">Apuesta mínima (100)</option>
+                                <option value="personalizada">Apuesta personalizada</option>
+                                <option value="maxima">Apuesta máxima</option>
+                            </select>
+                            <input type="number" id="apuesta-personalizada-4" class="apuesta-personalizada" style="display:none;" placeholder="Cantidad De Dinero">
+                        </div>
+                        <div class="columna-apuesta">
+                            <h3>Caballo 5</h3>
+                            <select id="select-apuesta-5">
+                                <option value="" selected></option>
+                                <option value="minima">Apuesta mínima (100)</option>
+                                <option value="personalizada">Apuesta personalizada</option>
+                                <option value="maxima">Apuesta máxima</option>
+                            </select>
+                            <input type="number" id="apuesta-personalizada-5" class="apuesta-personalizada" style="display:none;" placeholder="Cantidad De Dinero">
+                        </div>
+                    </div>
+                    <div class="saldo-apuestas">
+                        <h3>Tu saldo: $<span id="saldo-jugador">1000</span></h3>
+                        <button id="realizar-apuesta">Realizar Apuesta</button>
+                    </div>
+
+                </div>
+                </div>
                 <div id="seleccionDeCaballos">
-                    <h3>selecciona los caballos que quieres que corran</h3>
-                    <div>
+                    <br>
+                    <div class="selecciondecaballos" class="oculto">
                         <label for="select-caballo1">Caballo 1</label>
                         <select id="select-caballo1">
                             <option value="caballo1.png">Jose</option>
@@ -77,21 +135,18 @@
                     </div>
                 </div>
                 <div id="pista">
-                    <img id="caballo1" class="caballo" src="../../../../assets/images/caballo2.png" alt="Caballo 1" style="top: 0px;">
-                    <img id="caballo2" class="caballo" src="../../../../assets/images/caballo2.png" alt="Caballo 2" style="top: 80px;"> 
-                    <img id="caballo3" class="caballo" src="../../../../assets/images/caballo2.png"alt="Caballo 3" style="top: 160px;"> 
-                    <img id="caballo4" class="caballo" src="../../../../assets/images/caballo2.png"alt="Caballo 4" style="top: 240px;"> 
-                    <img id="caballo5" class="caballo" src="../../../../assets/images/caballo2.png"alt="Caballo 5" style="top: 320px;"> 
+                    <img id="caballo1" class="caballo" src="../../../../assets/caballos/caballo2.png" alt="Caballo 1" style="top: 0px;">
+                    <img id="caballo2" class="caballo" src="../../../../assets/caballos/caballo2.png" alt="Caballo 2" style="top: 80px;">
+                    <img id="caballo3" class="caballo" src="../../../../assets/caballos/caballo2.png"alt="Caballo 3" style="top: 160px;">
+                    <img id="caballo4" class="caballo" src="../../../../assets/caballos/caballo2.png"alt="Caballo 4" style="top: 240px;">
+                    <img id="caballo5" class="caballo" src="../../../../assets/caballos/caballo2.png"alt="Caballo 5" style="top: 320px;">
                 </div>
                 <div class="botonesdecarrera">
-                    <button id="iniciar">Iniciar Carrera</button>
-                    <button id="carreradebuses" onclick="actualizarBuses()">Carrera de buses</button>
+                    <!-- <button id="iniciar">Iniciar Carrera</button> -->
+                    <!-- <button id="carreradebuses" onclick="actualizarBuses()">Carrera de buses</button> -->
                 </div>
                 <div id="resultado"></div>
             </section>
-        
-
-    </main>
 
     <footer>
         <div class="footer-container">
@@ -100,13 +155,11 @@
                 <h2>Casino Montalban</h2>
                 <p>&copy; 2024 Todos los derechos reservados.</p>
             </div>
-    
             <div class="footer-contact">
                 <h3>Contacto</h3>
                 <p><strong>Teléfono:</strong> +34 123 456 789</p>
                 <p><strong>Dirección:</strong> Calle Ejemplo, 123, Ciudad, País</p>
             </div>
-    
             <div class="footer-form">
                 <h3>Formulario de Contacto</h3>
                 <form action="/send-message" method="POST">
@@ -116,16 +169,15 @@
                     <button type="submit">Enviar</button>
                 </form>
             </div>
-    
             <div class="footer-links">
                 <h3>Enlaces Legales</h3>
                 <ul>
-                    <li><a href="../pages/privacitat/cookies.html">Política de Cookies</a></li>
-                    <li><a href="../pages/privacitat/privacitat.html">Política de Privacidad</a></li>
+                    <li><a href="../privacitat/cookies.html">Política de Cookies</a></li>
+                    <li><a href="../privacitat/privacitat.html">Política de Privacidad</a></li>
                 </ul>
             </div>
         </div>
     </footer>
-    <script src="../../../js/juego.js"></script>
+    <script src="../../../js/carreradecaballos.js"></script>
 </body>
 </html>

@@ -6,9 +6,11 @@ html, body {
   font-family: Arial, sans-serif;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Estilos del header y nav */
@@ -602,17 +604,7 @@ footer {
   color: green;
 }
 
-div#pista {
-  height: 500px;
-  width: 1200px;
-  border: 2px solid #000;
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-  background-image: url('../assets/images/hipodromo.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 
 .botonesdecarrera button{
   width: auto;
@@ -623,39 +615,287 @@ div#pista {
   border-radius: 5px;
   font-size: 1rem;
 }
-.selecciondecaballos select{
-  width: auto;
-  padding: 0.3rem;
-  background-color: #130513;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+
+/* tragaperras */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
 
-button:hover {
-  background-color: #45a049;
-}
-
-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.result-container {
-  font-size: 20px;
-  font-weight: bold;
+h1 {
   color: #333;
+  margin-bottom: 20px;
+}
+
+#score {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4CAF50;
+}
+
+.slot-machine {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .reel {
   width: 100px;
   height: 300px;
+  border: 2px solid #333;
+  border-radius: 10px;
   overflow: hidden;
   background-color: #f0f0f0;
 }
-#fondoCarreras{
-  background-image: url('../../assets/images/imagenDeFondoCarrera.jpg');
-  background-size: auto;
+
+.symbols {
+  display: flex;
+  flex-direction: column;
+  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
+.symbols img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #d018d0;
+  transform: translateY(-3px);
+}
+
+.controls button:disabled {
+  background-color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.win-animation {
+  animation: winAnimation 0.5s alternate infinite ease-in-out;
+}
+
+.symbols {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.05s;
+}
+
+.symbols img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+#lluvia-de-dinero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/animations/money.gif');
+  background-size: cover;
+  z-index: 10;
+}
+
+/* Estilos específicos para carreradecaballos.html */
+
+#fondoCarreras {
+  background-image: linear-gradient(#fff0f0, #f7f5f5, #f1f1f1);
+  min-height: 100vh;
+  width: 100%;
+}
+
+#ultimos-ganadores {
+  background-image: linear-gradient(90deg, #7c127c, #ff00ff, #d018d0);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+}
+
+#ultimos-ganadores h2 {
+  text-align: center;
+  color: white;
+}
+
+#ganadores-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ganador {
+  background-color: black;
+  color: rgb(252, 252, 252);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.caballo {
+  position: absolute;
+  width: 300px;
+  transition: left 0.1s ease-in-out;
+  -webkit-transition: left 0.1s ease-in-out;
+  -moz-transition: left 0.1s ease-in-out;
+  -ms-transition: left 0.1s ease-in-out;
+  -o-transition: left 0.1s ease-in-out;
+}
+
+div#pista {
+  height: 500px;
+  width: 100%;
+  max-width: 1800px;
+  border: 2px solid #000;
+  position: relative;
+  margin: 10px auto 0;
+  overflow: hidden;
+  background-image: url('../../assets/images/fondoDeCarrera.jpg');
+  background-position: 0%;
+  border-left-color: white;
+  border-right-color: white;
+}
+
+#seleccionDeCaballos {
+  display: none;
+}
+
+select {
+  appearance: none;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  background-image: linear-gradient(45deg, transparent 50%, #666 50%), linear-gradient(135deg, #666 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+select:hover {
+  background-color: #2a2a2a;
+  border-color: #555;
+}
+
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+select option {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  padding: 10px;
+}
+
+select option:hover {
+  background-color: #333;
+}
+
+select option:checked {
+  background-color: #007bff;
+}
+
+.apuesta-personalizada {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.apuesta-personalizada:focus {
+  border-color: #55595e;
+  box-shadow: 0 0 10px rgba(59, 133, 199, 0.5);
+}
+
+.contenedor-apuestas, .saldo-apuestas {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background-color: #121212;
+  border-radius: 12px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  margin: 20px auto;
+}
+
+.columna-apuesta {
+  flex: 1;
+  text-align: center;
+}
+
+.columna-apuesta h3 {
+  color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+#realizar-apuesta {
+  background-color: #2b36da;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#realizar-apuesta:hover {
+  background-color: #54575a;
+}
+
+.saldo-apuestas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.saldo-apuestas h3 {
+  color: #f0f0f0;
+}
+
