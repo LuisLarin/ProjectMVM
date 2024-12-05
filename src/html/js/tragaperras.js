@@ -93,47 +93,61 @@ function verificarGanancia(filaDelMedio, apuesta) {
     const mensajeResultado = document.getElementById('result');
     let ganancia = 0;
  
-    const sietesCount = filaDelMedio.filter(fruta => fruta.nombre === 'Siete').length;
-    const objetosIguales = new Set(filaDelMedio.map(fruta => fruta.id)).size;
- 
     mensajeResultado.classList.remove('win-animation', 'lose-animation');
  
-    if (objetosIguales <= 2 || sietesCount >= 2) {
-        if (objetosIguales === 1) {
-            ganancia = filaDelMedio[0].valor * 3 * (apuesta / costePorGiro);
-            mensajeResultado.textContent = `¡Felicidades! Has ganado ${ganancia} puntos con tres ${filaDelMedio[0].nombre}s.`;
-        } else if (objetosIguales === 2) {
-            const frutaRepetida = filaDelMedio[0].id === filaDelMedio[1].id ? filaDelMedio[0] : filaDelMedio[1];
-            ganancia = frutaRepetida.valor * 2 * (apuesta / costePorGiro);
-            mensajeResultado.textContent = `Has ganado ${ganancia} puntos con dos ${frutaRepetida.nombre}s.`;
+    // Verificar coincidencias adyacentes
+    for (let i = 0; i < 2; i++) {
+        if (filaDelMedio[i].id === filaDelMedio[i + 1].id) {
+            const frutaRepetida = filaDelMedio[i];
+            ganancia += frutaRepetida.valor * 2 * (apuesta / costePorGiro);
+            mensajeResultado.textContent = `Has ganado ${ganancia} puntos con dos ${frutaRepetida.nombre}s adyacentes.`;
+            mensajeResultado.classList.add('win-animation');
         }
- 
-        if (sietesCount >= 2) {
-            ganancia += 500 * sietesCount * (apuesta / costePorGiro);
-            mensajeResultado.textContent += ` ¡Bonus de ${500 * sietesCount} puntos por ${sietesCount} Sietes!`;
-        }
- 
+    }
+
+    // Verificar tres frutas iguales
+    if (filaDelMedio[0].id === filaDelMedio[1].id && filaDelMedio[1].id === filaDelMedio[2].id) {
+        ganancia = filaDelMedio[0].valor * 3 * (apuesta / costePorGiro);
+        mensajeResultado.textContent = `¡Felicidades! Has ganado ${ganancia} puntos con tres ${filaDelMedio[0].nombre}s.`;
+        mensajeResultado.classList.add('win-animation');
+    }
+
+    // Verificar sietes
+    const sietesCount = filaDelMedio.filter(fruta => fruta.nombre === 'Siete').length;
+    if (sietesCount >= 2) {
+        ganancia += 500 * sietesCount * (apuesta / costePorGiro);
+        mensajeResultado.textContent += ` ¡Bonus de ${500 * sietesCount} puntos por ${sietesCount} Sietes!`;
         mensajeResultado.classList.add('win-animation');
         mostrarLluviaDeDinero();
-    } else {
+    }
+
+    if (ganancia === 0) {
         mensajeResultado.textContent = "Lo siento, no has ganado esta vez. ¡Inténtalo de nuevo!";
         mensajeResultado.classList.add('lose-animation');
+    } else if (apuesta === puntuacion || sietesCount >= 2) {
+        mostrarLluviaDeDinero();
     }
  
     puntuacion += ganancia;
     actualizarPuntuacion();
  
     return ganancia > 0;
- }
- 
+}
 
 async function jugarTragaperras(apuestaMaxima = false) {
+   const botonGirar = document.querySelector('button');
+   const botonApuestaMaxima = document.querySelector('.btn-apuesta-maxima');
+   
    let costeGiroActual = apuestaMaxima ? puntuacion : costePorGiro;
 
    if (puntuacion < costeGiroActual) {
        alert("No tienes suficientes puntos para jugar!");
+       botonApuestaMaxima.disabled = true;
        return;
    }
+
+   botonGirar.disabled = true;
+   botonApuestaMaxima.disabled = true;
 
    puntuacion -= costeGiroActual;
    actualizarPuntuacion();
@@ -150,11 +164,14 @@ async function jugarTragaperras(apuestaMaxima = false) {
        actualizarPuntuacion();
    }
 
-   if (apuestaMaxima) {
-       const botonApuestaMaxima = document.querySelector('.btn-apuesta-maxima');
+   botonGirar.disabled = false;
+   botonApuestaMaxima.disabled = puntuacion < costePorGiro;
+
+   if (apuestaMaxima && !gano) {
        botonApuestaMaxima.disabled = true;
    }
 }
+
 
 function actualizarPuntuacion() {
    const elementoPuntuacion = document.getElementById('score');

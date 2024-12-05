@@ -7,6 +7,7 @@ function actualizarImagenCaballo(selectId, caballoId) {
     });
 }
 */
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM cargado');
     const pista = document.getElementById('pista');
@@ -56,7 +57,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 case 'personalizada':
                     apuesta = parseInt(inputPersonalizada.value) || 0;
                     if (apuesta < apuestaMinima) {
-                        alert(`La apuesta mínima es ${apuestaMinima}`);
+                        Swal.fire({
+                            title: `La apuesta mínima es ${apuestaMinima}`,
+                            icon: 'error',
+                            confirmButtonText: 'Ok!'
+                          });
+                        //alert(`La apuesta mínima es ${apuestaMinima}`);
                         return;
                     }
                     break;
@@ -70,7 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (apuestaTotal > saldoJugador) {
-            alert("No tienes suficiente saldo para realizar esta apuesta.");
+            Swal.fire({
+                title: `No tienes suficiente saldo para realizar esta apuesta.`,
+                icon: 'error',
+                confirmButtonText: 'Ok!'
+              });
+            //alert("No tienes suficiente saldo para realizar esta apuesta.");
             return;
         }
 
@@ -79,11 +90,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function procesarResultadoApuesta(ganador) {
+        auxiliar = saldoJugador;
         const apuestaGanadora = apuestas[ganador - 1];
         const ganancias = apuestaGanadora * 5;
         saldoJugador += ganancias;
         actualizarSaldoJugador();
-        alert(`¡Has ganado ${ganancias}! Tu nuevo saldo es ${saldoJugador}.`);
+        if (saldoJugador > auxiliar) {
+        Swal.fire({
+            title: `Has ganado! tu nuevo saldo es de: ${saldoJugador}`,
+            icon: 'success',
+            confirmButtonText: 'Ok!'
+          });
+        } else {
+            Swal.fire({
+                title: `Tu saldo es: ${saldoJugador}`,
+                icon: 'error',
+                confirmButtonText: ';('
+            });
+        }
+        //alert(`¡Has ganado ${ganancias}! Tu nuevo saldo es ${saldoJugador}.`);
         apuestas = [0, 0, 0, 0, 0];
     }
 
@@ -196,6 +221,3 @@ document.addEventListener('DOMContentLoaded', function() {
     actualizarSaldoJugador();
     cicloCarreras();
 });
-
-
-

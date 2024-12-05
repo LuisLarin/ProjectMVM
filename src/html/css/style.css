@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: url('../assets/fonts/KentuckyFriedChickenFont.ttf');
 }
 
 body, html {
@@ -11,7 +11,11 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: url('../assets/fonts/KentuckyFriedChickenFont.ttf');
+
 }
+
+
 
 /* Estilos del header y nav */
 header {
@@ -204,7 +208,6 @@ ul li strong {
 }
 
 /* Estilos de juegos destacados */
-/* Estilos de juegos destacados */
 #juegos-destacados {
   margin-bottom: 2rem;
 }
@@ -313,7 +316,6 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
-  margin-top: 2rem;
 }
 
 .footer-container {
@@ -714,14 +716,14 @@ button {
 }
 
 #lluvia-de-dinero {
-  position: absolute;
-  top: 0;
+  position: fixed; 
   left: 0;
   width: 100%;
   height: 100%;
   background-image: url('../../assets/animations/money.gif');
   background-size: cover;
-  z-index: 10;
+  z-index: 1000;
+  display: none;
 }
 
 /* Estilos específicos para carreradecaballos.html */
@@ -898,4 +900,79 @@ select option:checked {
 .saldo-apuestas h3 {
   color: #f0f0f0;
 }
+
+.slot-machine {
+  background: linear-gradient(135deg, #630963, #d018d0);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+
+.reel {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.reel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.symbols img {
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.symbols img:hover {
+  filter: brightness(1.2);
+}
+
+.controls button {
+  background: linear-gradient(90deg, #630963, #d018d0);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.controls button:hover {
+  background-color: #d018d0;
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(208, 24, 208, 0.5);
+}
+
+#result {
+  color: #4CAF50;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.win-animation {
+  background-color: rgba(255,215,0,0.2);
+  border-radius: 10px;
+}
+
+#lluvia-de-dinero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/animations/money.gif');
+  background-size: cover;
+  z-index: -1; /* Asegura que no tape otros elementos */
+}
+
+div#tragaperrasdiv {
+  background-image: url('../assets/images/casinobackgrnd.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#tragaperrasdiv, h1{
+  color: white;
+}
+
+
 
